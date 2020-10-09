@@ -77,7 +77,12 @@ function Calculator() {
         value="="
         onClick={() => {
           try {
-            setInput(String(eval(input)));
+            setInput(
+              String(eval(input)).length > 2 &&
+                String(eval(input)).includes(".")
+                ? String(eval(input).toFixed(3))
+                : String(eval(input))
+            );
           } catch (e) {
             console.log(e);
           }
