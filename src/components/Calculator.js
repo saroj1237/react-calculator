@@ -76,7 +76,11 @@ function Calculator() {
       <button
         value="="
         onClick={() => {
-          setInput(String(eval(input)));
+          try {
+            setInput(String(eval(input)));
+          } catch (e) {
+            console.log(e);
+          }
         }}
       >
         =
