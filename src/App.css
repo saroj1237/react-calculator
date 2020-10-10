@@ -1,31 +1,75 @@
-.calculator {
-  background-color: gray;
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+.wrapper {
   max-width: 420px;
   min-height: 96vh;
-}
-
-.input {
-  padding: 20px;
-}
-
-.clear_button {
-  width: 30%;
-}
-
-.clear_all_button {
-  width: 30%;
-}
-
-.button_container {
-  background-color: #2196f3;
-  width:75%;
+  margin: 0 auto;
 }
 
 button {
-  background-color: rgba(255, 255, 255, 0.8);
-  border: 1px solid rgba(0, 0, 0, 0.8);
-  padding: 20px;
-  font-size: 30px;
-  width: 25%;
-  text-align: center;
+  font-size: 2rem;
+  border: 1px solid #333;
+  cursor: pointer;
+}
+.modifiers button {
+  background-color: #ccc;
+}
+.operations button {
+  background-color: black;
+  color: white;
+  width: 100px;
+}
+.digits button {
+  background-color: #efefef;
+}
+
+/* All things Grid, Flexbox, Box Alignment */
+.wrapper,
+.subgrid {
+  display: grid;
+}
+.wrapper {
+  grid-template-areas:
+    "total total total total"
+    "modif modif modif oper"
+    "digit digit digit oper"
+    "digit digit digit oper"
+    "digit digit digit oper"
+    "digit digit digit oper";
+  grid-auto-columns: 1fr;
+}
+.show-input {
+  grid-area: total;
+}
+.modifiers {
+  grid-area: modif;
+}
+.operations {
+  grid-area: oper;
+}
+.digits {
+  grid-area: digit;
+}
+
+.show-input {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: 2rem;
+}
+
+.modifiers {
+  grid-auto-flow: column;
+  grid-auto-columns: 1fr;
+}
+
+.digits {
+  display: flex;
+  flex-wrap: wrap;
+}
+.digits button {
+  flex: 1 0 26%;
 }
